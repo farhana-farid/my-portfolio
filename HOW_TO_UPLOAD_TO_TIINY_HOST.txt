@@ -1,0 +1,32 @@
+========================================================================
+HOW TO UPLOAD TO TIINY HOST (tiiny.host) IN 3 SIMPLE STEPS
+========================================================================
+
+Ready-to-upload ZIP file:
+File: bbb.zip
+
+STEP 1: Open Tiiny Host
+-----------------------
+Go to your browser and visit:
+https://tiiny.host
+
+STEP 2: Drag and Drop the ZIP file
+----------------------------------
+- Take the file 'bbb.zip' from this folder (or from your Desktop).
+- Drag and drop it into the 'Upload your file' area on tiiny.host.
+
+STEP 3: Name your site and Publish
+----------------------------------
+- Enter a link name (e.g. farhana-portfolio).
+- Click 'Publish'.
+- Your 3D interactive portfolio website is now live on the internet!
+
+========================================================================
+FOLDER CONTENTS (Desktop\\bbb):
+========================================================================
+- bbb.zip                         -> Drag-and-drop ready ZIP for tiiny.host
+- index.html                      -> Pre-rendered website with 3D interactive mascot
+- css/style.css                   -> 3D physics, glassmorphism, animations
+- js/main.js                      -> 3D parallax tilt, speech bubble, confetti
+- images/                         -> 3D mascot.png and project SVGs
+========================================================================

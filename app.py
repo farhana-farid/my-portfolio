@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__, template_folder=".", static_folder=".", static_url_path="")
+app = Flask(__name__, static_url_path="")
 
 # Base directory configuration
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -30,7 +30,7 @@ PORTFOLIO_DATA = {
             "pixel-perfect digital experiences."
         ),
         "socials": {
-            "github": "https://github.com",
+            "github": "https://github.com/farhana-farid",
             "linkedin": "https://linkedin.com",
             "twitter": "https://twitter.com",
             "email": "mailto:farhanafarid41@gmail.com"
@@ -120,7 +120,7 @@ PORTFOLIO_DATA = {
             "tech": ["Python", "Flask", "AI API", "Tailwind CSS"],
             "image": "project1.svg",
             "demo_url": "#",
-            "code_url": "https://github.com",
+            "code_url": "https://github.com/farhana-farid",
             "featured": True
         },
         {
@@ -133,7 +133,7 @@ PORTFOLIO_DATA = {
             "tech": ["Flask", "Vanilla JS", "SQLite", "Tailwind CSS"],
             "image": "project2.svg",
             "demo_url": "#",
-            "code_url": "https://github.com",
+            "code_url": "https://github.com/farhana-farid",
             "featured": True
         },
         {
@@ -146,7 +146,7 @@ PORTFOLIO_DATA = {
             "tech": ["HTML5", "Tailwind CSS", "Vanilla JS", "SVG"],
             "image": "project3.svg",
             "demo_url": "#",
-            "code_url": "https://github.com",
+            "code_url": "https://github.com/farhana-farid",
             "featured": True
         },
         {
@@ -159,7 +159,7 @@ PORTFOLIO_DATA = {
             "tech": ["Python", "Flask", "AI Prompting", "Tailwind CSS"],
             "image": "project4.svg",
             "demo_url": "#",
-            "code_url": "https://github.com",
+            "code_url": "https://github.com/farhana-farid",
             "featured": False
         },
         {
@@ -172,7 +172,7 @@ PORTFOLIO_DATA = {
             "tech": ["Python", "Flask", "Vanilla JS", "REST API"],
             "image": "project5.svg",
             "demo_url": "#",
-            "code_url": "https://github.com",
+            "code_url": "https://github.com/farhana-farid",
             "featured": False
         },
         {
@@ -185,7 +185,7 @@ PORTFOLIO_DATA = {
             "tech": ["HTML5", "Tailwind CSS", "Vanilla JS", "SEO"],
             "image": "project6.svg",
             "demo_url": "#",
-            "code_url": "https://github.com",
+            "code_url": "https://github.com/farhana-farid",
             "featured": False
         }
     ]

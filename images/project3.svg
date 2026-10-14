@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgP3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <filter id="p3Shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="380" rx="24" fill="url(#bgP3)"/>
+  <circle cx="120" cy="100" r="130" fill="#7C3AED" opacity="0.3"/>
+  <circle cx="500" cy="280" r="120" fill="#3B82F6" opacity="0.25"/>
+
+  <!-- UI Components Artboard -->
+  <g transform="translate(40, 35)" filter="url(#p3Shadow)">
+    <rect width="520" height="310" rx="16" fill="#FAF9FF"/>
+    
+    <!-- Top toolbar -->
+    <rect width="520" height="42" rx="16" fill="#FFFFFF"/>
+    <path d="M0 26 H520 V42 H0 Z" fill="#FFFFFF"/>
+    <line x1="0" y1="42" x2="520" y2="42" stroke="#EDE9FE" stroke-width="1.5"/>
+
+    <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="21" r="5" fill="#10B981"/>
+
+    <text x="80" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#0F172A">🎨 ArtisanUI System v2.0</text>
+
+    <!-- Component Showcase Grid -->
+    <!-- Component 1: Gradient Buttons -->
+    <g transform="translate(25, 60)">
+      <rect width="225" height="110" rx="12" fill="#FFFFFF" stroke="#EDE9FE"/>
+      <text x="15" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#64748B">BUTTONS &amp; ACTIONS</text>
+      
+      <rect x="15" y="38" width="105" height="32" rx="16" fill="#7C3AED"/>
+      <text x="67.5" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">Primary</text>
+
+      <rect x="130" y="38" width="80" height="32" rx="16" fill="#EDE9FE"/>
+      <text x="170" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#6D28D9" text-anchor="middle">Soft</text>
+
+      <rect x="15" y="78" width="195" height="22" rx="11" fill="none" stroke="#7C3AED" stroke-width="1.5"/>
+      <text x="112" y="93" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#7C3AED" text-anchor="middle">Outline Variant</text>
+    </g>
+
+    <!-- Component 2: Toggle & Badges -->
+    <g transform="translate(270, 60)">
+      <rect width="225" height="110" rx="12" fill="#FFFFFF" stroke="#EDE9FE"/>
+      <text x="15" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#64748B">SWITCHES &amp; STATUS</text>
+
+      <!-- Toggle on -->
+      <rect x="15" y="42" width="46" height="24" rx="12" fill="#7C3AED"/>
+      <circle cx="49" cy="54" r="9" fill="#FFFFFF"/>
+      <text x="70" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#0F172A">Active State</text>
+
+      <!-- Badges -->
+      <g transform="translate(15, 78)">
+        <rect width="55" height="20" rx="10" fill="#DCFCE7"/>
+        <text x="27.5" y="91" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#15803D" text-anchor="middle">Success</text>
+
+        <rect x="65" width="55" height="20" rx="10" fill="#EDE9FE"/>
+        <text x="92.5" y="91" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#7C3AED" text-anchor="middle">Violet</text>
+
+        <rect x="130" width="55" height="20" rx="10" fill="#FEF3C7"/>
+        <text x="157.5" y="91" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#B45309" text-anchor="middle">Warning</text>
+      </g>
+    </g>
+
+    <!-- Component 3: Glassmorphism Card -->
+    <g transform="translate(25, 185)">
+      <rect width="470" height="105" rx="12" fill="#FFFFFF" stroke="#EDE9FE"/>
+      <text x="15" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#64748B">INTERACTIVE AVATAR METRIC CARD</text>
+      
+      <circle cx="40" cy="62" r="22" fill="#EDE9FE"/>
+      <text x="40" y="68" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800" fill="#7C3AED" text-anchor="middle">FF</text>
+
+      <text x="75" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0F172A">Farhana Farid • Lead Designer</text>
+      <text x="75" y="72" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748B">Tailwind CSS 3.4 • Semantic HTML • Pure JS</text>
+
+      <rect x="375" y="48" width="80" height="28" rx="8" fill="#7C3AED"/>
+      <text x="415" y="66" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">Inspect</text>
+    </g>
+  </g>
+</svg>

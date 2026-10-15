@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDE9FE"/>
+      <stop offset="50%" stop-color="#F5F3FF"/>
+      <stop offset="100%" stop-color="#FAF9FF"/>
+    </linearGradient>
+    
+    <linearGradient id="purpleRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+
+    <linearGradient id="avatarHoodie" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95"/>
+      <stop offset="50%" stop-color="#5B21B6"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCE7D2"/>
+      <stop offset="100%" stop-color="#F5D0B5"/>
+    </linearGradient>
+
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#7C3AED" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Backdrop Circles -->
+  <circle cx="250" cy="250" r="230" fill="url(#bgGlow)"/>
+  <circle cx="250" cy="250" r="215" fill="none" stroke="url(#purpleRing)" stroke-width="4" stroke-dasharray="10 12" opacity="0.6"/>
+  <circle cx="250" cy="250" r="195" fill="#FFFFFF" filter="url(#softGlow)"/>
+
+  <!-- Floating Sparkles / Code elements -->
+  <!-- Top Left Sparkle -->
+  <g transform="translate(90, 110)">
+    <circle cx="0" cy="0" r="18" fill="#EDE9FE"/>
+    <path d="M0 -10 L2 -2 L10 0 L2 2 L0 10 L-2 2 L-10 0 L-2 -2 Z" fill="#7C3AED"/>
+  </g>
+
+  <!-- Top Right Code Pill -->
+  <g transform="translate(380, 130)">
+    <rect x="-35" y="-16" width="70" height="32" rx="16" fill="#EDE9FE"/>
+    <text x="0" y="5" font-family="'Plus Jakarta Sans', monospace, sans-serif" font-size="13" font-weight="700" fill="#6D28D9" text-anchor="middle">&lt;AI /&gt;</text>
+  </g>
+
+  <!-- Left Bottom Sparkle -->
+  <g transform="translate(85, 340)">
+    <circle cx="0" cy="0" r="14" fill="#EDE9FE"/>
+    <text x="0" y="5" font-family="monospace" font-size="12" font-weight="700" fill="#7C3AED" text-anchor="middle">{ }</text>
+  </g>
+
+  <!-- AVATAR ILLUSTRATION -->
+  <!-- Back Hair -->
+  <path d="M165 210 C165 130 335 130 335 210 C335 290 320 360 300 370 C280 320 220 320 200 370 C180 360 165 290 165 210 Z" fill="url(#hairGrad)"/>
+
+  <!-- Shoulders & Outfit -->
+  <path d="M150 440 C150 360 210 330 250 330 C290 330 350 360 350 440 Z" fill="url(#avatarHoodie)"/>
+  
+  <!-- Collar / Inner Top -->
+  <path d="M225 330 L250 375 L275 330 Z" fill="#EDE9FE"/>
+  <!-- Zipper / Accent -->
+  <line x1="250" y1="375" x2="250" y2="440" stroke="#7C3AED" stroke-width="2.5"/>
+
+  <!-- Neck -->
+  <rect x="232" y="275" width="36" height="60" rx="12" fill="url(#skinTone)"/>
+  <!-- Neck shadow -->
+  <path d="M232 290 C244 302 256 302 268 290 L268 310 C256 320 244 320 232 310 Z" fill="#E2BA9D" opacity="0.6"/>
+
+  <!-- Head / Face -->
+  <path d="M190 220 C190 160 310 160 310 220 C310 280 280 305 250 305 C220 305 190 280 190 220 Z" fill="url(#skinTone)"/>
+
+  <!-- Front Hair Style (Sleek modern side-swept locks) -->
+  <path d="M190 210 C190 145 310 145 310 210 C310 175 285 160 250 160 C210 160 190 185 190 210 Z" fill="url(#hairGrad)"/>
+  <path d="M190 200 C205 220 225 225 240 215 C215 190 200 180 190 200 Z" fill="url(#hairGrad)"/>
+  <path d="M310 205 C295 225 275 230 260 215 C285 185 300 180 310 205 Z" fill="url(#hairGrad)"/>
+
+  <!-- Eyebrows -->
+  <path d="M212 210 Q225 205 236 210" stroke="#1E1B4B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M264 210 Q275 205 288 210" stroke="#1E1B4B" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Eyes -->
+  <circle cx="225" cy="222" r="5" fill="#0F172A"/>
+  <circle cx="227" cy="220" r="1.8" fill="#FFFFFF"/>
+  <circle cx="275" cy="222" r="5" fill="#0F172A"/>
+  <circle cx="277" cy="220" r="1.8" fill="#FFFFFF"/>
+  <!-- Eyelashes delicate touch -->
+  <path d="M219 217 Q226 214 232 217" stroke="#0F172A" stroke-width="2" fill="none"/>
+  <path d="M268 217 Q275 214 281 217" stroke="#0F172A" stroke-width="2" fill="none"/>
+
+  <!-- Subtle Blush -->
+  <circle cx="212" cy="235" r="9" fill="#FDA4AF" opacity="0.45"/>
+  <circle cx="288" cy="235" r="9" fill="#FDA4AF" opacity="0.45"/>
+
+  <!-- Nose -->
+  <path d="M250 225 Q253 238 248 242" stroke="#D79E78" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Gentle Confident Smile -->
+  <path d="M236 256 Q250 268 264 256" stroke="#9F1239" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Laptop Stand / Top Edge -->
+  <g transform="translate(185, 385)">
+    <path d="M0 45 L20 15 L110 15 L130 45 Z" fill="url(#laptopGrad)"/>
+    <!-- Glowing keyboard line -->
+    <line x1="25" y1="36" x2="105" y2="36" stroke="#C4B5FD" stroke-width="2" opacity="0.7"/>
+    <!-- Laptop screen edge -->
+    <rect x="25" y="0" width="80" height="15" rx="3" fill="#0F172A"/>
+    <!-- Apple/Farhana logo dot -->
+    <circle cx="65" cy="7.5" r="2.5" fill="#C084FC"/>
+  </g>
+
+  <!-- Floating Star Badge (Top Right) -->
+  <g transform="translate(390, 270)">
+    <circle cx="0" cy="0" r="22" fill="#7C3AED" filter="url(#softGlow)"/>
+    <path d="M0 -11 L3 -3 L11 0 L3 3 L0 11 L-3 3 L-11 0 L-3 -3 Z" fill="#FFFFFF"/>
+  </g>
+</svg>

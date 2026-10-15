@@ -1,0 +1,355 @@
+/* ==========================================================================
+   Farhana Farid - Modern Personal Portfolio Stylesheet
+   Theme: Soft Light Lavender & Vibrant Violet Accent
+   ========================================================================== */
+
+:root {
+  --bg-main: #FAF9FF;
+  --bg-card: #FFFFFF;
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-light: #EDE9FE;
+  --gradient-royal: linear-gradient(135deg, #4C1D95 0%, #6D28D9 100%);
+  --gradient-accent: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+  --border-soft: #EDE9FE;
+  --text-heading: #0F172A;
+  --text-body: #64748B;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-body);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DDD6FE;
+  border-radius: 9999px;
+  border: 2px solid #FAF9FF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4B5FD;
+}
+
+/* Base Utility Classes */
+.bg-theme-main {
+  background-color: var(--bg-main);
+}
+
+.bg-royal-gradient {
+  background: var(--gradient-royal);
+}
+
+.bg-accent-gradient {
+  background: var(--gradient-accent);
+}
+
+.text-gradient {
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-soft-lavender {
+  border-color: var(--border-soft);
+}
+
+/* Soft card shadow */
+.card-soft-shadow {
+  box-shadow: 0 10px 30px -5px rgba(124, 58, 237, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+}
+
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(124, 58, 237, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
+}
+
+/* Floating animation for hero decorations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+/* Subtle pulse glow for active card */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 10px 30px -5px rgba(109, 40, 217, 0.35);
+  }
+  50% {
+    box-shadow: 0 15px 40px -2px rgba(124, 58, 237, 0.55);
+  }
+}
+
+.active-service-card {
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+/* Glassmorphism elements */
+.glass-nav {
+  background: rgba(250, 249, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Navigation active pill */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+.nav-link.active {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+}
+
+/* Button pulse ripple effect */
+.btn-primary-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary-ripple:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Toast Notification animations */
+#toast-container {
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Modal animation */
+.modal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.open .modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   3D INTERACTIVE MASCOT STYLES & PHYSICS
+   ========================================================================== */
+
+.mascot-3d-perspective {
+  perspective: 1200px;
+}
+
+.mascot-3d-card {
+  transform-style: preserve-3d;
+  transition: transform 0.12s ease-out, box-shadow 0.2s ease-out;
+  will-change: transform;
+}
+
+.mascot-3d-card.spring-back {
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mascot-layer-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 65%);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
+  transform: translateZ(25px);
+}
+
+.mascot-layer-mascot {
+  transform: translateZ(55px);
+  transform-style: preserve-3d;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mascot-layer-speech {
+  transform: translateZ(70px);
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mascot-layer-badge {
+  transform: translateZ(80px);
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mascot idle floating animation */
+@keyframes mascotIdleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.2deg);
+  }
+}
+
+.mascot-idle {
+  animation: mascotIdleFloat 4.5s ease-in-out infinite;
+}
+
+/* Mascot joyful celebration on click */
+@keyframes mascotCelebration {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(0.92) translateY(8px);
+  }
+  50% {
+    transform: scale(1.15) translateY(-24px) rotate(-4deg);
+  }
+  75% {
+    transform: scale(1.05) translateY(-6px) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
+
+.mascot-celebrating {
+  animation: mascotCelebration 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Floating speech bubble pulse */
+@keyframes speechPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.speech-bubble-pop {
+  animation: speechPulse 3.5s ease-in-out infinite;
+}
+
+/* Particle confetti burst on mascot click */
+.mascot-confetti {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  animation: confettiExplode 0.85s forwards ease-out;
+  z-index: 50;
+}
+
+@keyframes confettiExplode {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 30px), var(--ty, -50px)) scale(0.2);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+

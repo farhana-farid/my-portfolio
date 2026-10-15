@@ -8,6 +8,17 @@ app = Flask(__name__, static_url_path="")
 
 # Base directory configuration
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+
+@app.after_request
+def add_security_headers(response):
+    """Harden responses (safe defaults for a local HTTPS dev server)."""
+    response.headers.setdefault("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    response.headers.setdefault("Permissions-Policy", "geolocation=(), microphone=(), camera=()")
+    return response
 DATA_FILE = os.path.join(BASE_DIR, "data", "messages.json")
 
 # Ensure data directory and messages store exist
@@ -286,5 +297,13 @@ def health():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    print(f"✨ Farhana Farid Portfolio starting at http://127.0.0.1:{port}")
-    app.run(host="0.0.0.0", port=port, debug=True)
+    cert_path = os.path.join(BASE_DIR, "certs", "cert.pem")
+    key_path = os.path.join(BASE_DIR, "certs", "key.pem")
+    if os.path.exists(cert_path) and os.path.exists(key_path):
+        ssl_context = (cert_path, key_path)
+        scheme = "https"
+    else:
+        ssl_context = None
+        scheme = "http"
+    print(f"Farhana Farid Portfolio starting at {scheme}://127.0.0.1:{port}")
+    app.run(host="0.0.0.0", port=port, debug=True, ssl_context=ssl_context)

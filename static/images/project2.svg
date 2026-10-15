@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgP2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+    <filter id="p2Shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="380" rx="24" fill="url(#bgP2)"/>
+  <circle cx="520" cy="300" r="160" fill="#4338CA" opacity="0.4"/>
+  <circle cx="80" cy="80" r="120" fill="#6D28D9" opacity="0.3"/>
+
+  <!-- App Window -->
+  <g transform="translate(40, 35)" filter="url(#p2Shadow)">
+    <rect width="520" height="310" rx="16" fill="#FFFFFF"/>
+    
+    <!-- Top Bar -->
+    <rect width="520" height="46" rx="16" fill="#F8FAFC"/>
+    <path d="M0 30 H520 V46 H0 Z" fill="#F8FAFC"/>
+    <line x1="0" y1="46" x2="520" y2="46" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <circle cx="24" cy="23" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="23" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="23" r="5" fill="#10B981"/>
+
+    <!-- Search / Title -->
+    <text x="80" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0F172A">⚡ DevPulse Kanban</text>
+    
+    <rect x="360" y="14" width="140" height="20" rx="10" fill="#EDE9FE"/>
+    <text x="430" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#6D28D9" text-anchor="middle">Sprint 04: 86% Done</text>
+
+    <!-- 3 Column Kanban Board -->
+    <!-- Column 1: To Do -->
+    <g transform="translate(20, 60)">
+      <rect width="150" height="235" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <text x="12" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#475569">TO DO (2)</text>
+      
+      <!-- Card 1 -->
+      <rect x="10" y="34" width="130" height="60" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+      <rect x="18" y="44" width="50" height="12" rx="4" fill="#FEE2E2"/>
+      <text x="43" y="53" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#B91C1C" text-anchor="middle">HIGH</text>
+      <text x="18" y="72" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#0F172A">Setup Redis Cache</text>
+      <text x="18" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#64748B">API latency tune</text>
+
+      <!-- Card 2 -->
+      <rect x="10" y="102" width="130" height="55" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+      <rect x="18" y="112" width="45" height="12" rx="4" fill="#E0E7FF"/>
+      <text x="40.5" y="121" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#4338CA" text-anchor="middle">DOCS</text>
+      <text x="18" y="140" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#0F172A">Write Swagger Specs</text>
+    </g>
+
+    <!-- Column 2: In Progress -->
+    <g transform="translate(185, 60)">
+      <rect width="150" height="235" rx="10" fill="#FAF5FF" stroke="#F3E8FF"/>
+      <text x="12" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#7C3AED">IN PROGRESS (1)</text>
+
+      <!-- Active Card -->
+      <rect x="10" y="34" width="130" height="85" rx="8" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="1.5"/>
+      <rect x="18" y="44" width="40" height="12" rx="4" fill="#EDE9FE"/>
+      <text x="38" y="53" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#6D28D9" text-anchor="middle">CORE</text>
+      <text x="18" y="72" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#0F172A">Flask Auth &amp; JWT</text>
+      
+      <!-- Progress Bar -->
+      <rect x="18" y="90" width="114" height="6" rx="3" fill="#EDE9FE"/>
+      <rect x="18" y="90" width="80" height="6" rx="3" fill="#7C3AED"/>
+      <text x="18" y="108" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#6D28D9">70% completed</text>
+    </g>
+
+    <!-- Column 3: Done -->
+    <g transform="translate(350, 60)">
+      <rect width="150" height="235" rx="10" fill="#F0FDF4" stroke="#DCFCE7"/>
+      <text x="12" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#15803D">COMPLETED (4)</text>
+
+      <!-- Done Card -->
+      <rect x="10" y="34" width="130" height="55" rx="8" fill="#FFFFFF" stroke="#BBF7D0"/>
+      <rect x="18" y="44" width="55" height="12" rx="4" fill="#DCFCE7"/>
+      <text x="45.5" y="53" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700" fill="#15803D" text-anchor="middle">RELEASED</text>
+      <text x="18" y="72" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#0F172A">Database Migrations</text>
+
+      <rect x="10" y="96" width="130" height="55" rx="8" fill="#FFFFFF" stroke="#BBF7D0"/>
+      <text x="18" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#0F172A">Tailwind Theme Base</text>
+    </g>
+  </g>
+</svg>

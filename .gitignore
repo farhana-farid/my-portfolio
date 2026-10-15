@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Local HTTPS dev cert (do not publish)
+certs/
+*.pem
+*.key
+
+# Contact form message storage (do not publish)
+data/messages.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip

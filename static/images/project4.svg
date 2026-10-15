@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgP4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#EDE9FE" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="24" fill="url(#bgP4)"/>
+
+  <!-- App Window -->
+  <g transform="translate(40, 35)">
+    <rect width="520" height="310" rx="16" fill="#FFFFFF"/>
+    <rect width="520" height="42" rx="16" fill="#F8FAFC"/>
+    <path d="M0 26 H520 V42 H0 Z" fill="#F8FAFC"/>
+    <line x1="0" y1="42" x2="520" y2="42" stroke="#EDE9FE" stroke-width="1.5"/>
+
+    <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="21" r="5" fill="#10B981"/>
+
+    <text x="80" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0F172A">💳 SmartExpense AI</text>
+
+    <!-- Top Stats -->
+    <g transform="translate(25, 58)">
+      <rect width="145" height="58" rx="10" fill="#FAF5FF" stroke="#F3E8FF"/>
+      <text x="14" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#7C3AED" font-weight="600">TOTAL SAVED</text>
+      <text x="14" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" fill="#0F172A">$2,480.50</text>
+
+      <g transform="translate(160, 0)">
+        <rect width="145" height="58" rx="10" fill="#F0FDF4" stroke="#DCFCE7"/>
+        <text x="14" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#16A34A" font-weight="600">ANOMALIES CAUGHT</text>
+        <text x="14" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" fill="#0F172A">4 Flagged</text>
+      </g>
+
+      <g transform="translate(320, 0)">
+        <rect width="145" height="58" rx="10" fill="#EFF6FF" stroke="#DBEAFE"/>
+        <text x="14" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#2563EB" font-weight="600">AUTO-TAG ACCURACY</text>
+        <text x="14" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" fill="#0F172A">98.4%</text>
+      </g>
+    </g>
+
+    <!-- Visual Chart Area -->
+    <g transform="translate(25, 130)">
+      <rect width="465" height="160" rx="12" fill="#FAF9FF" stroke="#EDE9FE"/>
+      
+      <!-- Chart line & area -->
+      <path d="M 20 120 Q 80 40, 140 80 T 260 50 T 360 85 T 440 30 L 440 140 L 20 140 Z" fill="url(#chartGrad)"/>
+      <path d="M 20 120 Q 80 40, 140 80 T 260 50 T 360 85 T 440 30" fill="none" stroke="#7C3AED" stroke-width="3"/>
+      
+      <!-- Key Data Points -->
+      <circle cx="140" cy="80" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5"/>
+      <circle cx="260" cy="50" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5"/>
+      <circle cx="440" cy="30" r="6" fill="#7C3AED"/>
+
+      <!-- Floating Tooltip -->
+      <g transform="translate(390, 8)">
+        <rect width="65" height="20" rx="4" fill="#0F172A"/>
+        <text x="32.5" y="14" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle">+$420 AI Opt</text>
+      </g>
+    </g>
+  </g>
+</svg>

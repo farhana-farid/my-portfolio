@@ -446,53 +446,118 @@ function initInteractive3DMascot() {
   ];
   let speechIndex = 0;
 
-  // 3D Parallax Tilt Calculation
-  const handleMouseMove = (e) => {
-    card.classList.remove('spring-back');
+  /* ------------------------------------------------------------------
+   * 3D Parallax Tilt — driven by the pointer ANYWHERE on the page,
+   * not just while hovering the card.
+   *
+   * Uses a rAF loop with lerp smoothing so the card glides instead of
+   * snapping, and falls back to a gentle idle drift when the pointer
+   * is idle (important on touch devices, where there is no hover).
+   * ------------------------------------------------------------------ */
+  const MAX_TILT = 16;        // degrees
+  const MAX_SHIFT = 12;       // px the mascot image parallaxes
+  const IDLE_AFTER = 2200;    // ms of no pointer input before idling
+  const LERP = 0.12;          // smoothing factor per frame
+
+  // Where we want to be, and where we currently are
+  const target = { x: 0, y: 0 };
+  const current = { x: 0, y: 0 };
+  let pointerActive = false;
+  let lastPointerMove = 0;
+  let rafId = null;
+
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+  // Read a pointer/touch position and convert to a -1..1 tilt target
+  const setTargetFromClient = (clientX, clientY) => {
     const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    // Normalise against the VIEWPORT so the card reacts from anywhere
+    // on the page, not only when the cursor is over the card itself.
+    const spanX = window.innerWidth / 2 || 1;
+    const spanY = window.innerHeight / 2 || 1;
 
-    const deltaX = (x - centerX) / centerX; // -1 to 1
-    const deltaY = (y - centerY) / centerY; // -1 to 1
+    target.x = clamp((clientX - centerX) / spanX, -1, 1);
+    target.y = clamp((clientY - centerY) / spanY, -1, 1);
 
-    const maxTilt = 16; // degrees
-    const rotateX = -deltaY * maxTilt;
-    const rotateY = deltaX * maxTilt;
+    pointerActive = true;
+    lastPointerMove = performance.now();
+  };
 
-    card.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+  // Single render pass — called every frame
+  const render = (now) => {
+    const idle = !pointerActive || (now - lastPointerMove) > IDLE_AFTER;
 
-    // Holographic Glare reflection shift
-    if (glare) {
-      glare.style.opacity = '1';
-      glare.style.background = `radial-gradient(circle at ${(x / rect.width) * 100}% ${(y / rect.height) * 100}%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 65%)`;
+    // When idle, drift through a slow sine wave so the card looks alive
+    if (idle) {
+      const t = now / 1000;
+      target.x = Math.sin(t * 0.6) * 0.28;
+      target.y = Math.cos(t * 0.45) * 0.18;
     }
 
-    // Dynamic mascot parallax offset
-    mascotImg.style.transform = `translateZ(55px) translateX(${deltaX * 10}px) translateY(${deltaY * 10}px)`;
+    current.x += (target.x - current.x) * LERP;
+    current.y += (target.y - current.y) * LERP;
+
+    const rotateX = -current.y * MAX_TILT;
+    const rotateY = current.x * MAX_TILT;
+
+    card.classList.toggle('spring-back', idle);
+    card.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+    mascotImg.style.transform =
+      `translateZ(55px) translateX(${(current.x * MAX_SHIFT).toFixed(2)}px) translateY(${(-current.y * MAX_SHIFT).toFixed(2)}px)`;
+
+    // Holographic glare follows the pointer, fades out when idle
+    if (glare) {
+      if (idle) {
+        glare.style.opacity = '0';
+      } else {
+        const gx = (current.x * 0.5 + 0.5) * 100;
+        const gy = (current.y * 0.5 + 0.5) * 100;
+        glare.style.opacity = '1';
+        glare.style.background = `radial-gradient(circle at ${gx.toFixed(1)}% ${gy.toFixed(1)}%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 65%)`;
+      }
+    }
+
+    rafId = requestAnimationFrame(render);
   };
 
-  const handleMouseLeave = () => {
-    card.classList.add('spring-back');
-    card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-    mascotImg.style.transform = 'translateZ(55px) translateX(0px) translateY(0px)';
-    if (glare) glare.style.opacity = '0';
-  };
+  rafId = requestAnimationFrame(render);
 
-  container.addEventListener('mousemove', handleMouseMove);
-  container.addEventListener('mouseleave', handleMouseLeave);
+  // Pointer Events cover mouse, touch and pen in one path
+  if (window.PointerEvent) {
+    window.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'touch') return; // touch handled by touchmove
+      setTargetFromClient(e.clientX, e.clientY);
+    }, { passive: true });
 
-  // Mobile Touch Support
-  container.addEventListener('touchmove', (e) => {
+    window.addEventListener('pointerdown', (e) => {
+      setTargetFromClient(e.clientX, e.clientY);
+    }, { passive: true });
+  } else {
+    window.addEventListener('mousemove', (e) => {
+      setTargetFromClient(e.clientX, e.clientY);
+    }, { passive: true });
+  }
+
+  // Mobile Touch Support — drag anywhere on the page to steer the card
+  window.addEventListener('touchmove', (e) => {
     if (e.touches.length > 0) {
-      handleMouseMove(e.touches[0]);
+      setTargetFromClient(e.touches[0].clientX, e.touches[0].clientY);
     }
   }, { passive: true });
 
-  container.addEventListener('touchend', handleMouseLeave);
+  // When the pointer leaves the window, ease back to rest
+  document.addEventListener('mouseleave', () => {
+    pointerActive = false;
+    lastPointerMove = 0;
+  });
+
+  window.addEventListener('blur', () => {
+    pointerActive = false;
+    lastPointerMove = 0;
+  });
 
   // Click / Tap Celebration Reactions
   const triggerCelebration = () => {

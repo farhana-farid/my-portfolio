@@ -1,5 +1,7 @@
 # Farhana Farid — Modern Developer Portfolio
 
+**Live Demo:** https://farhana-farid.github.io/my-portfolio/
+
 A pixel-perfect, high-performance personal portfolio website built with **Python (Flask)** on the backend and **HTML5, Tailwind CSS, and Vanilla JavaScript** on the frontend.
 
 ## ✨ Features & Architecture
